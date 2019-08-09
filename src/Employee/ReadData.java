@@ -1,26 +1,16 @@
 package Employee;
-//import ReadData;
-import java.io.FileNotFoundException;
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
-public class EmployeeList
+public class ReadData extends ArrayList
 {
-   private List<Employee> list;
 
-   public EmployeeList () throws Exception
+   //private List<Employee> list = new ArrayList<>();
+
+   public ReadData () throws Exception
    {
-//      getList();
-      this.list = new ArrayList<>();
-   }
-
-   public List<Employee> getList () throws FileNotFoundException
-   {
-
-
-
-
+//   public void populateList () throws FileNotFoundException
+//   {
 
       // Create a File instance
       java.io.File file = new java.io.File("employees.csv");
@@ -48,15 +38,11 @@ public class EmployeeList
 //         System.out.println(employeeID + "     "
 //                 + firstName + " " + lastName + " " + sin + "   " + department + "    " + title + "   " + startDate + "   " + salary + "   " + maritalStatus + "   " + children + "    " + qualification);
          Employee employee = new Employee(employeeID, firstName, lastName, sin, department, title, startDate, salary, maritalStatus, children, qualification);
-         System.out.println(employee.toString());
-         list.add(employee);
+         //System.out.println(employee.toString());
+         this.add(employee);
 
-
-
-
-//      // Close the file
-//      input.close();
+         // Close the file
+//         input.close();
       }
-      return list;
    }
 }

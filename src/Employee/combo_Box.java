@@ -51,14 +51,14 @@ public class combo_Box extends Application
       TilePane tile_pane = new TilePane(combo_box, selected);
 
       // Create a scene 
-      Scene scene = new Scene(tile_pane, 200, 200);
+      Scene scene = new Scene(tile_pane, 800, 600);
 
       // Set the scene 
       stage.setScene(scene);
-      
+
       stage.show();
    }
-   
+
    public static void main (String args[])
    {
       // Launch the application 

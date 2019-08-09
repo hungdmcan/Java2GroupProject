@@ -10,7 +10,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.*;
 import javafx.stage.Stage;
-public class MenuBar_2 extends Application
+public class EmployeeListView extends Application
 {
 
    // launch the application 
@@ -70,43 +70,56 @@ public class MenuBar_2 extends Application
       Label description_label
               = new Label("This is a combo box example ");
 
-      // Weekdays 
-      Department dept[] = {Department.HR_ADMIN, Department.PROJECT_MANAGEMENT, Department.SALES_MARKETING, Department.TECHNICAL_ENGINEERING};
+
+//      Department dept[] = {Department.HR_ADMIN, Department.PROJECT_MANAGEMENT, Department.SALES_MARKETING, Department.TECHNICAL_ENGINEERING};
 
       // Create a combo box 
-      ComboBox combo_box = new ComboBox(FXCollections.observableArrayList(dept));
+      ComboBox combo_box = new ComboBox(FXCollections.observableArrayList(Department.values()));
 
       // Label to display the selected menuitem 
       Label selected = new Label("default item selected");
       combo_box.setPromptText("Choose a Department");
 
       // Create action event 
-//      EventHandler<ActionEvent> event
-//              = new EventHandler<ActionEvent>()
-//      {
-//         public void handle (ActionEvent e)
-//         {
-//            selected.setText(combo_box.getValue() + " selected");
-//         }
-//      };
+      EventHandler<ActionEvent> event1
+              = new EventHandler<ActionEvent>()
+      {
+         public void handle (ActionEvent e)
+         {
+            selected.setText(combo_box.getValue() + " selected");
+         }
+      };
 
       // Set on action 
-      combo_box.setOnAction(event);
+      combo_box.setOnAction(event1);
 
+      TextField employeeAll = new TextField("Employee Info");
+      employeeAll.setPrefSize(200, 100);
+      // employeeAll.setText("All employeed infor here");
       // Create a tile pane 
       TilePane tile_pane = new TilePane(combo_box, selected);
+      TilePane info = new TilePane(employeeAll);
       grid.add(vb, 0, 0);
-      grid.add(tile_pane, 0, 4);
+      grid.add(tile_pane, 0, 1);
+      grid.add(info, 0, 2);
+      // grid.add(info, 2, 2);
 
       // create a scene 
 //      Scene sc = new Scene(vb, 500, 300);
 //      Scene sc1 = new Scene(tile_pane, 500, 300);
-      Scene sc = new Scene(grid, 500, 300);
+      Scene sc = new Scene(grid, 800, 600);
 //      s.setScene(sc1);
       // set the scene 
       s.setScene(sc);
 
       s.show();
+   }
+
+   public void setEmployeeInfo (String s)
+   {
+
+      employeeAll.
+
    }
 
    public static void main (String args[])
